@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <meta charset="UTF-8">
+    <title>bicycle style</title>
+</head>
+<body>
+
+<div id="about">
+    <h4>About</h4>
+    <p>A simple page to ride your bike across HTML5, CSS3 and LESS.</p>
+</div>
+<div id="sources">
+    <h4>Sources</h4>
+    <a href="https://github.com/antonia100/bicycle_page"><p>GitHub</p></a>
+    <a href="https://thisnorthernboy.wordpress.com/2013/02/01/doodle-street/"><p>Street Image</p></a>
+</div>
+<div id="contact">
+    <h4>Contact</h4>
+    <p>Email: antoniya100yanova@gmail.com</p>
+</div>
+
+<header>
+
+    <h3>Biking down the street</h3>
+
+    <ul>
+        <li onclick="showMenuItem('about')">About</li>
+        <li onclick="showMenuItem('sources')">Sources</li>
+        <!--https://thisnorthernboy.wordpress.com/2013/02/01/doodle-street/-->
+        <li onclick="showMenuItem('contact')">Contact</li>
+    </ul>
+</header>
+
+<main onclick="releaseDim()">
+
+    <section class="wrapper">
+
+
+        <div class="street">
+            <button onclick="bikeDownTheStreet()" class="street-components" id="start-bike">Start</button>
+
+            <div class="info-wrapper">
+                <div class="info-bubble" id="info-bubble-1"></div>
+                <div class="info-bubble" id="info-bubble-2"></div>
+                <div class="info-bubble" id="info-bubble-3"></div>
+
+            </div>
+            <div class="street-components" id="bike">
+
+            </div>
+
+        </div>
+
+
+        <div id="no-likes">
+            <h4>The street doesn't like this size!</h4>
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer></footer>
+</body>
+</html>

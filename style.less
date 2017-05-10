@@ -1,0 +1,303 @@
+@blue: #00ad9d;
+@base-img-url: "img/";
+@margin-right-info: 300px;
+
+.transition (@prop: all, @time: 0.5s, @ease: linear) {
+  -webkit-transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -o-transition: @prop @time @ease;
+  -ms-transition: @prop @time @ease;
+  transition: @prop @time @ease;
+}
+
+.font (@size, @spacing, @color) {
+  font-size: @size;
+  font-family: "Bitstream Charter", serif;
+  letter-spacing: @spacing;
+  color: @color;
+}
+
+.follow-resizing (@media-px, @smaller-px) {
+  @media (max-width: @media-px) {
+    margin-right: @margin-right-info - @smaller-px;
+  }
+}
+
+.gradient (@startColor, @endColor) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  height: 45px;
+  top: 10px;
+  left: 1px;
+  background-color: antiquewhite;
+  border-bottom: 2px solid black;
+  z-index: 1;
+
+  h3 {
+    float: left;
+    margin: 7px;
+    padding-left: 20px;
+    .font(40px, 1px, 000000);
+  }
+
+  ul {
+    float: right;
+    margin: 5px;
+
+    input {
+      visibility: hidden;
+    }
+
+    li {
+      cursor: pointer;
+      list-style: none;
+      display: inline-block;
+      padding: 10px;
+      .font(20px, 1px, @blue);
+      .transition(all, 0.5s, ease-in)
+
+    }
+
+    li:hover {
+      opacity: 0.3;
+    }
+
+  }
+
+  @media (max-width: 870px) and (min-width: 481px) {
+    height: 100px;
+
+    h3, ul {
+      float: none;
+    }
+
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+
+    height: 80px;
+    padding: 5px;
+    position: absolute;
+
+    h3 {
+      font-size: 25px;
+      padding-bottom: 5px;
+    }
+
+    h3, ul {
+      float: none;
+      padding: 1px;
+      text-align: center;
+
+      li {
+        padding: 5px;
+      }
+
+    }
+
+  }
+
+}
+
+.wrapper {
+
+  width: 100%;
+  height: 800px;
+  top: 5%;
+  z-index: -1;
+
+  .street {
+    background: url("@{base-img-url}doodle_street_bw.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 80%;
+    height: 800px;
+    margin: auto;
+
+    .street-components {
+      display: block;
+    }
+
+    #start-bike {
+      .font(25px, 2px, #ffffff);
+      font-weight: bold;
+      text-shadow: 2px 2px #616161;
+      position: relative;
+      top: 15%;
+      left: 45%;
+      width: 100px;
+      height: 50px;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      background: @blue;
+      .gradient(#a0e2d3, @blue);
+    }
+
+    #start-bike:hover {
+      .gradient(@blue, #a0e2d3);
+    }
+
+    #bike {
+      background: url("@{base-img-url}blue_bike_flowers.png"), no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      width: 220px;
+      height: 240px;
+      position: relative;
+      top: 50%;
+    }
+
+    .info-wrapper {
+      position: relative;
+      top: 35%;
+      left: 10%;
+
+      .info-bubble {
+        display: inline-block;
+        width: 130px;
+        height: 120px;
+        margin-right: @margin-right-info;
+        z-index: -1;
+      }
+
+      #info-bubble-1 {
+        background: url("@{base-img-url}html.png") no-repeat;
+        visibility: hidden;
+      }
+
+      #info-bubble-2 {
+        background: url("@{base-img-url}css3.png") no-repeat;
+        visibility: hidden;
+      }
+
+      #info-bubble-3 {
+        background: url("@{base-img-url}less.png") no-repeat;
+        visibility: hidden;
+      }
+    }
+
+  }
+
+  #no-likes {
+    visibility: hidden;
+  }
+
+}
+
+.menu-item-display {
+  width: 500px;
+  height: 300px;
+  background: #f0f0f0;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  z-index: 1;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: 1px solid #3e3e3e;
+}
+
+#about, #sources, #contact {
+  .menu-item-display;
+  visibility: hidden;
+
+  h4 {
+    .font(25px, 2px, #000000);
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+
+    p:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    .font(20px, 1px, #292929);
+    text-align: center;
+    margin: 10px;
+  }
+
+}
+
+@media (max-width: 870px) and (min-width: 481px) {
+  .wrapper {
+
+    .street {
+      visibility: hidden;
+    }
+
+    #no-likes {
+      visibility: visible;
+      position: relative;
+      margin: auto;
+      bottom: 80%;
+      width: 400px;
+      height: 100px;
+      border: 1px solid #000000;
+      border-radius: 3px;
+
+      h4 {
+        text-align: center;
+        line-height: 30px;
+        .font(20px, 2px, #000000);
+        margin: 15px;
+      }
+    }
+
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  body {
+    height: 600px;
+  }
+
+  .wrapper {
+    .street {
+      width: 100%;
+      height: 400px;
+
+      #start-bike {
+        visibility: hidden;
+      }
+
+      #bike {
+        position: absolute;
+        bottom: 10%;
+        margin-right: 10px;
+      }
+
+    }
+  }
+
+  #about, #sources, #contact {
+    width: 97%;
+    left: 1%;
+    right: 1%;
+    height: 220px;
+
+  }
+
+}
